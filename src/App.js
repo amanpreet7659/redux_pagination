@@ -1,23 +1,18 @@
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import { FetctAPI } from './Action/FetchAPI';
+import TableData from './Component/TableData';
+import { useSelector, useDispatch } from 'react-redux';
+import {fetchApi} from './Action/PassengerAction'
+import React, { useEffect } from 'react'
+import SwipeableTemporaryDrawer from './Component/SwipeableTemporaryDrawer';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <FetctAPI /> */}
+      <TableData/>
+      {/* <SwipeableTemporaryDrawer/> */}
     </div>
   );
 }
