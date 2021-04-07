@@ -1,5 +1,5 @@
 import axios from "axios"
-import { DELETE_PASSENGER, EDIT_PASSENGER, GET_API, GET_PASSENGER } from "../Store/Events";
+import { DELETE_PASSENGER, EDIT_PASSENGER, GET_API, GET_PASSENGER, UPDATE_PASSENGER } from "../Store/Events";
 
 export const fetchApi = (index) => dispatch => {
   // debugger
@@ -24,16 +24,24 @@ export const fetchApi = (index) => dispatch => {
         })
     })
 }
-export const delt = (id) => dispatch=> {
-  dispatch ({
+export const delt = (id) => dispatch => {
+  dispatch({
     type: DELETE_PASSENGER,
-    payload:id
+    payload: id
   })
 }
-export const editData=(id)=>dispatch=>{
-  console.log("from edit ",id);
+export const editData = (id) => dispatch => {
+  console.log("from edit ", id);
   dispatch({
-    type:EDIT_PASSENGER,
-    payload:id
+    type: EDIT_PASSENGER,
+    payload: id
+  })
+}
+
+export const updateData = (state, Id,index) => dispatch => {
+  console.log("State from updateData Function ", state, Id);
+  dispatch({
+    type: UPDATE_PASSENGER,
+    payload: { state: state, Id: Id ,index:index},
   })
 }

@@ -11,10 +11,13 @@ import SwipeableTemporaryDrawer from './SwipeableTemporaryDrawer'
 function TableData(props) {
     const dispatch = useDispatch()
     const data = useSelector(state => state.passenger.passengerData.data)
-    const page = useSelector(state => state.passenger.passengerData);
+    const page = useSelector(state => state.passenger.pageD);
     const [cp, setcp] = useState(1);
     const [pageData, setPageData] = useState([])
     const [EditClick, setEditClick] = useState(false);
+    const [ID,setID]=useState();
+    const[index,setIndex]=useState();
+
     useEffect(() => {
         dispatch(fetchApi(1));
     }, [])
@@ -41,7 +44,7 @@ function TableData(props) {
     }
     return (<div className="">
         <div className="" style={{ border: "2px green solid" }}>
-            <ModalBox showModal={EditClick} setShowModal={setEditClick} />
+            <ModalBox showModal={EditClick} setShowModal={setEditClick} Id={ID} index={index}/>
 
             {/* <span style={{ position: "fixed" }}>page : {cp}</span> */}
             {!EditClick && <table>
@@ -63,13 +66,14 @@ function TableData(props) {
                             <td>{i.name}</td>
                             <td>{i.trips}</td>
                             <td>{i.airline.country}</td>
-                            <td>{i.airline.name}</td>
+                            <td><a href={`https://${i.airline.website}`} style={{color:"black",textDecoration:"none"}} target="_blank">{i.airline.name}</a></td>
                             <td>{i._id}</td>
                             <td><button className="btn-primary" onClick={(e) => {
                                 e.preventDefault();
-                                console.log("j=", i._id);
+                                setID(i._id);
                                 dispatch(editData(i._id))
                                 setEditClick(pre => !pre)
+                                setIndex(j)
                             }} >Edit</button></td>
                             <td><button className="btn-danger" onClick={() => {
                                 dispatch(delt(i._id))
@@ -79,7 +83,7 @@ function TableData(props) {
                     })}
                 </tbody>
             </table>}
-            {!EditClick && <Pagination count={page.totalPages} onChange={handleChangePage} color="primary"></Pagination>}
+            {!EditClick && <Pagination count={page} onChange={handleChangePage} color="primary"></Pagination>}
             {/* <SwipeableTemporaryDrawer/> */}
         </div>
     </div>
