@@ -1,0 +1,56 @@
+.cell
+{
+    font-size: 15px !important;
+    /* font-weight:  !important; */
+}
+
+.row
+{
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+
+.MuiPaginationItem-root
+{
+    font-size: 1em !important;
+}
+
+#pagination{
+    width: 100% !important;
+    background: white !important;
+    position: fixed !important;
+    bottom: 0px !important;
+}
+h1{
+    text-align: center;
+}
+.search{
+    float: right;
+    border: none;
+    text-align: center;
+    border-bottom: 1px black solid;
+}
+
+.table{
+    margin-bottom: 30px;
+}
+
+.Header
+{
+    border-bottom: 2px black solid  ;
+}
+
+.formdiv
+{
+      background-repeat: no-repeat, repeat; 
+      position: absolute;
+      background: #333 url(https://i.pinimg.com/originals/a2/a5/fa/a2a5fa40d773c1d9af8868fe9ff530fe.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 220%;
+      z-index: -1;
+      opacity: 0.2;
+}
+

@@ -19,16 +19,15 @@ const ModalBox = ({ showModal, setShowModal ,Id ,index}) => {
         {e.target.name==="name"?enterData.name=e.target.value:e.target.name==="trips"?enterData.trips=e.target.value:e.target.name==="aCountry"?enterData.country=e.target.value:enterData.airline_name=e.target.value}
         console.log("Enter Data is ",enterData);
     }
-    console.log("ID from Modal Box ",Id);
+    // console.log("ID from Modal Box ",Id);
     return (
         <div>
-
-            <div style={{}}>
+            <div>
                 {console.log(showModal)}
                 {showModal ? <div>
                     <input type="text" name="name" placeholder={editD.data[0].name} onChange={handleInputChange}/>
                     <br></br>
-                    <input type="text" name="trips" placeholder={editD.data[0].trips} onChange={handleInputChange}/>
+                    <input type="number" min="1" name="trips" placeholder={editD.data[0].trips} onChange={handleInputChange}/>
                     <br></br>
                     <input type="text" name="aCountry" placeholder={editD.data[0].airline.country} onChange={handleInputChange} />
                     <br></br>

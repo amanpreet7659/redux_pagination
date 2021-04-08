@@ -1,5 +1,6 @@
 import axios from "axios"
-import { DELETE_PASSENGER, EDIT_PASSENGER, GET_API, GET_PASSENGER, UPDATE_PASSENGER } from "../Store/Events";
+import { bindActionCreators } from "redux";
+import { DELETE_PASSENGER, EDIT_PASSENGER, GET_API, GET_PASSENGER, SEARCH_PASSENGER, UPDATE_PASSENGER } from "../Store/Events";
 
 export const fetchApi = (index) => dispatch => {
   // debugger
@@ -38,10 +39,22 @@ export const editData = (id) => dispatch => {
   })
 }
 
-export const updateData = (state, Id,index) => dispatch => {
-  console.log("State from updateData Function ", state, Id);
+export const updateData = (state1, Id1, index1) => dispatch => {
+  console.log("State from updateData Function ", state1, Id1, index1);
   dispatch({
     type: UPDATE_PASSENGER,
-    payload: { state: state, Id: Id ,index:index},
+    payload: {
+      state: state1,
+      Id: Id1,
+      index: index1
+    },
   })
 }
+
+// export const searchData = (id) => dispatch => {
+//   // console.log("Function from search ",id);
+//   dispatch({
+//     type:SEARCH_PASSENGER,
+//     payload:id
+//   })
+//  }
