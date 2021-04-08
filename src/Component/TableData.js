@@ -65,18 +65,18 @@ function TableData(props) {
     //     console.log("j=", j);
     //     setEditClick(pre => !pre)
     // }
-    return (<div className="maindiv">
+    return (<div style={{position:'relative'}} className="    ">
         <div className="formdiv"></div>
-        <div >
-            <h1>Pagination Through React Redux</h1>
+        <h1>Pagination Through React Redux</h1>
+        <ModalBox showModal={EditClick} setShowModal={setEditClick} Id={ID} index={index} />
+        {!EditClick && <div >
             <input type="search" autoComplete="off" placeholder="Enter name to Search" className="search"
                 onChange={handelInput}
                 name="search"
             />
-            <ModalBox showModal={EditClick} setShowModal={setEditClick} Id={ID} index={index} />
 
             {/* <span style={{ position: "fixed" }}>page : {cp}</span> */}
-            {!EditClick && <TableContainer className="table">
+            <TableContainer className="table">
                 <Table>
                     <TableHead>
                         <TableRow className="Header">
@@ -85,7 +85,7 @@ function TableData(props) {
                             <TableCell className="row">Trips</TableCell>
                             <TableCell className="row">Airline.Country</TableCell>
                             <TableCell className="row">Airline.Name</TableCell>
-                            {/* <TableCell className="row">Airline-ID</TableCell> */}
+                            <TableCell className="row">Airline-Logo</TableCell>
                             <TableCell colSpan="2" className="row">Actions</TableCell>
                         </TableRow>
                     </TableHead>
@@ -96,8 +96,8 @@ function TableData(props) {
                                 <TableCell className="cell" >{i.name}</TableCell>
                                 <TableCell className="cell" >{i.trips}</TableCell>
                                 <TableCell className="cell" >{i.airline.country}</TableCell>
-                                <TableCell className="cell" ><a href={`https://${i.airline.website}`} style={{ color: "black", textDecoration: "none" }} target="_blank">{i.airline.name}</a></TableCell>
-                                {/* <TableCell className="cell">{i._id}</TableCell> */}
+                                <TableCell className="cell" >{i.airline.name}</TableCell>
+                                <TableCell className="cell"><a target="_blank" href={`https://${i.airline.website}`}><img src={i.airline.logo}/></a></TableCell>
                                 <TableCell className="cell"><button className="btn-primary" onClick={(e) => {
                                     e.preventDefault();
                                     setID(i._id);
@@ -113,10 +113,11 @@ function TableData(props) {
                         })}
                     </TableBody>
                 </Table>
-            </TableContainer>}
+            </TableContainer>
             {!EditClick && <Pagination id="pagination" count={page} onChange={handleChangePage} color="primary"></Pagination>}
             {/* <SwipeableTemporaryDrawer/> */}
         </div>
+        }
     </div>
     )
 }

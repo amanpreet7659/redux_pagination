@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { editData, updateData } from '../Action/PassengerAction';
 import TableData from './TableData'
+import './index.css'
 
 const ModalBox = ({ showModal, setShowModal ,Id ,index}) => {
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const ModalBox = ({ showModal, setShowModal ,Id ,index}) => {
     // console.log("ID from Modal Box ",Id);
     return (
         <div>
-            <div>
+            <div className="modalclass">
                 {console.log(showModal)}
                 {showModal ? <div>
                     <input type="text" name="name" placeholder={editD.data[0].name} onChange={handleInputChange}/>
@@ -33,14 +34,14 @@ const ModalBox = ({ showModal, setShowModal ,Id ,index}) => {
                     <br></br>
                     <input type="text" name="aName" placeholder={editD.data[0].airline.name} onChange={handleInputChange}/>
                     <br></br>
-                    <input type="button" value="Update" className="btn-primary" onClick={()=>{
+                    <button type="button"  className="btn-primary" onClick={()=>{
                         dispatch(updateData(enterData,Id,index));
                         setShowModal(pre => !pre)
-                    }} />
-                    <input className="btn-warning" type="button" value="Close" onClick={() => {
+                    }}>Update</button> 
+                    <button className="btn-warning" type="button" value="Close" onClick={() => {
                         setShowModal(pre => !pre)
                         console.log(setShowModal)
-                    }} />
+                    }}>Close</button> 
                 </div> : null}
             </div>
         </div>

@@ -1,11 +1,14 @@
 .cell
 {
+    font-weight: bold !important;
     font-size: 15px !important;
+    font-family: 'Times New Roman', Times, serif !important;
     /* font-weight:  !important; */
 }
 
 .row
 {
+    font-family: 'Times New Roman', Times, serif !important;
     font-size: 20px !important;
     font-weight: bold !important;
 }
@@ -23,16 +26,19 @@
 }
 h1{
     text-align: center;
+    margin-top: 0px;
 }
 .search{
     float: right;
     border: none;
     text-align: center;
     border-bottom: 1px black solid;
+    border-radius: 10px;
+    font-size: 18px;
 }
 
 .table{
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .Header
@@ -42,15 +48,46 @@ h1{
 
 .formdiv
 {
-      background-repeat: no-repeat, repeat; 
-      position: absolute;
-      background: #333 url(https://i.pinimg.com/originals/a2/a5/fa/a2a5fa40d773c1d9af8868fe9ff530fe.jpg);
+    position: absolute ;
+      background:  url(https://i.pinimg.com/originals/a2/a5/fa/a2a5fa40d773c1d9af8868fe9ff530fe.jpg);
       background-position: center;
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: cover; 
       width: 100%;
-      height: 220%;
+       height: 100%;
       z-index: -1;
+      background-attachment: fixed;
       opacity: 0.2;
+      /* background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0; */
+    }
+
+body{
+    font-family: 'Times New Roman', Times, serif !important;
 }
 
+button{
+    border-radius: 10px;
+}
+
+.modalclass
+{
+    padding: 0px 500px;
+}
+.modalclass input{
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 0px 10px;
+    height: 30px;
+    font-size: 18px;
+}
+.modalclass button{
+    /* height: 25px; */
+    margin-left: 50px;
+}
