@@ -65,7 +65,7 @@ function TableData(props) {
     //     console.log("j=", j);
     //     setEditClick(pre => !pre)
     // }
-    return (<div style={{position:'relative'}} className="    ">
+    return (<div style={{ position: 'relative' }} className="    ">
         <div className="formdiv"></div>
         <h1>Pagination Through React Redux</h1>
         <ModalBox showModal={EditClick} setShowModal={setEditClick} Id={ID} index={index} />
@@ -97,7 +97,7 @@ function TableData(props) {
                                 <TableCell className="cell" >{i.trips}</TableCell>
                                 <TableCell className="cell" >{i.airline.country}</TableCell>
                                 <TableCell className="cell" >{i.airline.name}</TableCell>
-                                <TableCell className="cell"><a target="_blank" href={`https://${i.airline.website}`}><img src={i.airline.logo}/></a></TableCell>
+                                <TableCell className="cell"><a target="_blank" href={`https://${i.airline.website}`}><img src={i.airline.logo} /></a></TableCell>
                                 <TableCell className="cell"><button className="btn-primary" onClick={(e) => {
                                     e.preventDefault();
                                     setID(i._id);
@@ -114,8 +114,27 @@ function TableData(props) {
                     </TableBody>
                 </Table>
             </TableContainer>
-            {!EditClick && <Pagination id="pagination" count={page} onChange={handleChangePage} color="primary"></Pagination>}
-            {/* <SwipeableTemporaryDrawer/> */}
+            <div id="rowperpage">
+                <div><Pagination count={page} onChange={handleChangePage} color="primary"></Pagination></div>
+                <div>
+                    <label>Rows Per Page</label>
+                    <select>
+                        <option>10</option>
+                        <option>20</option>
+                        <option>30</option>
+                        <option>40</option>
+                        <option>50</option>
+                        <option>60</option>
+                        <option>70</option>
+                        <option>80</option>
+                        <option>90</option>
+                        <option>100</option>
+                    </select>
+                </div>
+            </div>
+
+
+
         </div>
         }
     </div>
